@@ -1,0 +1,16 @@
+html,
+body {
+  height: 100%;
+}
+.container {
+  height: 100%;
+}
+#movies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card {
+  margin: 1%;
+  padding: 1%;
+}
