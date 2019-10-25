@@ -53,8 +53,8 @@ async function postMovieToAPI(event) {
     name: movieName,
     description: movieDescription,
     released: movieReleased,
-    genre: genreArray
-    imageUrl:movieUrl
+    genre: genreArray,
+    imageUrl: movieUrl
   };
 
   //Give options to fetch (default of fetch is get not post)
