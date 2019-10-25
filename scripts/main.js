@@ -7,9 +7,9 @@ async function getMoviesFromAPI() {
   //Looping over each movie object
   movies.forEach(movie => {
     //We create an html template for each movie
-    let markup = ` <div class="card p-3">
-        <img src=${movie.imageURL} class="card-img-top" alt="...">
-      <div class="card-body">
+    let markup = ` <div class="card bg-dark p-2">
+      <img src= ${movie.movieUrl} class="card-img-top" alt="...">
+      <div class="card-body bg-dark">
         <h4 class="card-title px-2 py-1 text-center font-weight-bold">${
           movie.name
         } </h4>
@@ -22,7 +22,7 @@ async function getMoviesFromAPI() {
         <div class="card-footer d-flex justify-content-start pb-1 w-100"> ${movie.genre
           .map(
             genre =>
-              `<h5><span class="badge badge-primary mx-1">${genre}</span></h5>`
+              `<span class="badge badge-primary mx-1" style="font">${genre}</span>`
           )
           .join("")}
          </div>
@@ -44,7 +44,7 @@ async function postMovieToAPI(event) {
   const movieDescription = document.getElementById("movie-description").value;
   const movieReleased = document.getElementById("movie-released").value;
   const movieGenres = document.getElementById("movie-genres").value;
-  const movieUrl = document.getElementById("movie-image").value;
+  const movieImage = document.getElementById("movie-image").value;
 
   //Split genres by"," then trim to avoid whitespaces
   const genreArray = movieGenres.split(",").map(genre => genre.trim());
@@ -54,7 +54,7 @@ async function postMovieToAPI(event) {
     description: movieDescription,
     released: movieReleased,
     genre: genreArray,
-    imageUrl: movieUrl
+    movieUrl: movieImage
   };
 
   //Give options to fetch (default of fetch is get not post)
